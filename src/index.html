@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSL12 Dashboard | Regulatory</title>
+  </head>
+
+  <body
+    x-data="{ page: 'index', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}"
+  >
+    <!-- ===== Preloader Start ===== -->
+    <include src="./partials/preloader.html"></include>
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+      <!-- ===== Content Area Start ===== -->
+      <div
+        class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden"
+      >
+        <!-- ===== Header Start ===== -->
+        <include src="./partials/header.html" />
+        <!-- ===== Header End ===== -->
+
+        <!-- ===== Main Content Start ===== -->
+        <main>
+          <div
+            class="mx-auto flex max-w-screen-2xl flex-col items-center justify-center p-4 md:p-6 2xl:p-10"
+          >
+            <h1 class="text-center text-4xl sm:text-5xl lg:text-8xl">
+              SSL12 Dashboard
+            </h1>
+            <h2
+              class="py-5 text-center text-xl sm:text-2xl lg:text-5xl xl:mx-24"
+            >
+              Design and Implementation of a oneM2M-based Remote Monitoring
+              System for Water Distribution Networks Using Wireless Sensor Nodes
+            </h2>
+
+            <label
+              class="w-full text-center text-lg sm:text-xl lg:mt-24 lg:text-3xl"
+              >Pick a wireless sensor node to view:</label
+            >
+            <!-- Buttons -->
+            <div
+              class="mt-6 flex w-full flex-col items-center justify-evenly gap-y-6 gap-x-3 lg:w-10/12 lg:flex-row"
+            >
+              <a
+                class="group relative flex w-full items-center gap-2.5 rounded-sm font-medium text-bodydark1 duration-300 ease-in-out lg:w-auto"
+                href="WSN1.html"
+                @click="selected = (selected === 'WSN1' ? '':'WSN1')"
+                :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'WSN1') && (page === 'WSN1') }"
+              >
+                <button
+                  class="inline-flex w-full items-center justify-center rounded-md bg-black px-10 py-4 text-center text-xl font-medium text-white hover:scale-105 sm:text-2xl lg:w-auto lg:px-8 lg:text-5xl xl:px-10"
+                >
+                  WSN 1
+                </button>
+              </a>
+
+              <a
+                class="group relative flex w-full items-center gap-2.5 rounded-sm font-medium text-bodydark1 duration-300 ease-in-out lg:w-auto"
+                href="WSN2.html"
+                @click="selected = (selected === 'WSN2' ? '':'WSN2')"
+                :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'WSN2') && (page === 'WSN2') }"
+              >
+                <button
+                  class="inline-flex w-full items-center justify-center rounded-md bg-black px-10 py-4 text-center text-xl font-medium text-white hover:scale-105 sm:text-2xl lg:w-auto lg:px-8 lg:text-5xl xl:px-10"
+                >
+                  WSN 2
+                </button>
+              </a>
+
+              <a
+                class="group relative flex w-full items-center gap-2.5 rounded-sm font-medium text-bodydark1 duration-300 ease-in-out lg:w-auto"
+                href="WSN3.html"
+                @click="selected = (selected === 'WSN3' ? '':'WSN3')"
+                :class="{ 'bg-graydark dark:bg-meta-4': (selected === 'WSN3') && (page === 'WSN3') }"
+              >
+                <button
+                  class="inline-flex w-full items-center justify-center rounded-md bg-black px-10 py-4 text-center text-xl font-medium text-white hover:scale-105 sm:text-2xl lg:w-auto lg:px-8 lg:text-5xl xl:px-10"
+                >
+                  WSN 3
+                </button>
+              </a>
+            </div>
+          </div>
+        </main>
+        <!-- ===== Main Content End ===== -->
+      </div>
+      <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+  </body>
+</html>
